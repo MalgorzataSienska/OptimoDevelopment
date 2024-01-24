@@ -38,6 +38,18 @@ body {
 
 .border-bottom {bottom: 0;}
 
+@keyframes colorChange {
+    0% {
+        background-color: #808000;
+    }
+    50% {
+        background-color: #bada55;
+    }
+    100% {
+        background-color: #808000;
+    }
+}
+
 #header {
     position: absolute;
     width: 100%;
@@ -46,7 +58,9 @@ body {
     left: 0;
     background: #808000;
     border-bottom: 6px solid black;
+    animation: colorChange 5s ease-in-out infinite;
 }
+
 
 
 section {
@@ -123,6 +137,20 @@ section {
     transform: translateX(20vmin)rotate(45deg)translateX(6vmin);
 }
 
+
+
+@keyframes bounceAnimation {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
 .rectangle {
     width: 100%;
     height: 100%;
@@ -131,12 +159,23 @@ section {
     background: #c83737;
     border: 2px solid black;
     float: right;
+    animation: bounceAnimation 2s ease-in-out infinite;
 }
+
 
 .rectangle p {
     margin-block-start: 0.5em;
     text-align: center;
     font: 30px normal Arial, sans-serif;
+}
+
+@keyframes slideAnimation {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
 }
 
 .bar {
@@ -146,7 +185,13 @@ section {
     max-height: 100%;
     background: #0000fe;
     border: 2px solid black;
+    animation: slideAnimation 1s ease-out;
 }
+
+.bar:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
 
 .circle {
     width: 100%;
@@ -156,7 +201,18 @@ section {
     background: #008080;
     border-radius: 50%;
     border: 2px solid black;
+    animation: pulseRotate 2s infinite alternate;
 }
+
+@keyframes pulseRotate {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(360deg);
+    }
+}
+
 
 @media (max-width: 583px) {
     .header {
